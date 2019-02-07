@@ -11,6 +11,11 @@ def get_login_session(cred):
 
 def fetch_stories(ids, session):
     urls = {}
+    urls['pic_urls'] = []
+    urls['usernames'] = []
+    for user in ids:
+        urls['pic_urls'].append(userid[2])
+        urls['usernames'].append(userid[3])
     for userid in ids:
         urls[userid[1]]=[]
         response = session.get("https://i.instagram.com/api/v1/feed/user/"+ userid[0] +"/reel_media/")
